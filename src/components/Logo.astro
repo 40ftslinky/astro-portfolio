@@ -1,35 +1,36 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { iconPaths } from './IconPaths';
+import { logoPaths } from './LogoPaths';
 
 export interface Props {
-	icon: keyof typeof iconPaths;
+	logo: keyof typeof logoPaths;
 	color?: string;
 	gradient?: boolean;
 	size?: string;
 }
 
-const { color = 'currentcolor', gradient, icon, size } = Astro.props;
-const iconPath = iconPaths[icon];
+const { color = 'currentcolor', gradient, logo, size } = Astro.props;
+const logoPath = logoPaths[logo];
 
 const attrs: HTMLAttributes<'svg'> = {};
-if (size) attrs.style = { '--size': size };
+// if (size) attrs.style = { '--size': size };
 // if (size) attrs.style = { '--logosize': size };
 
-const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString(36);
+const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString(36);
 ---
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	width="40"
-	height="40"
-	viewBox="0 0 256 256"
+  class="logo"
+	width="200"
+	height="60"
+	viewBox="0 0 200 60"
 	aria-hidden="true"
 	stroke={gradient ? `url(#${gradientId})` : color}
 	fill={gradient ? `url(#${gradientId})` : color}
 	{...attrs}
 >
-	<g set:html={iconPath} />
+	<g set:html={logoPath} />
 	{
 		gradient && (
 			<linearGradient
@@ -48,15 +49,20 @@ const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString
 	}
 </svg>
 
-<style>
-	svg {
-		vertical-align: middle;
-		width: var(--size, 1em);
-		height: var(--size, 1em);
-	}
-	.logo svg  {
+<style>	
+	svg.logo  {
 		vertical-align: middle;
 		width: var(--logosizew, 200px);
 		height: var(--logosizeh, 60px);
 	}
+  .logo stop { transition: .5s all; }
+
+  .logo:hover stop:first-child { 
+    offset:1;
+    stop-color: var(--gradient-stop-3); 
+  }
+  .logo:hover stop:first-child { 
+    offset:0.5;
+    stop-color: var(--gradient-stop-2); 
+  }
 </style>
