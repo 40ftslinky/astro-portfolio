@@ -55,14 +55,18 @@ const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString
 		width: var(--logosizew, 200px);
 		height: var(--logosizeh, 60px);
 	}
+  /* gradient */
   .logo stop { transition: .5s all; }
 
   .logo:hover stop:first-child { 
-    offset:1;
+    /* offset:.5; */
     stop-color: var(--gradient-stop-3); 
   }
-  .logo:hover stop:first-child { 
-    offset:0.5;
+  .logo:hover stop:nth-child(2) { 
+    /* offset:.5; */
     stop-color: var(--gradient-stop-2); 
   }
+  .logo:hover stop:last-child { 
+    offset:.75;
+    stop-color: var(--gradient-stop-1); 
 </style>
