@@ -3,10 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
+
+import '../styles/forms.css';
+
 ---
 
 <BaseLayout title="Contact | 40ftSlinky" description="Contact 40ftSlinky">
-	<div class="stack gap-20">
+	<div class="main-content stack gap-20">
 		<main class="wrapper contact">
 			<Hero
 				title="Contact"
@@ -21,26 +24,31 @@ import Hero from '../components/Hero.astro';
 			</Hero>
 
 			<section>
-				<h2 class="section-title">Form</h2>
 				<div class="content">
-					
-					<!-- form -->
-          <form>
-            <label>
-              Username:
-              <input type="text" name="username" />
-            </label>
-            <label>
-              Email:
-              <input type="email" name="email" />
-            </label>
-            <label>
-              Password:
-              <input type="password" name="password" />
-            </label>
-            <button>Submit</button>
-          </form>
-					
+					<div class="form_wrapper stack">
+					<h2 class="section-title">Form</h2>
+						<!-- form -->
+						<form>
+							
+							<label>
+								<span>Name:</span>
+								<input type="text" name="name" />
+							</label>
+
+							<label>
+								<span>Email:</span>
+								<input type="email" name="email" />
+							</label>
+
+							<label>
+								<span>Messsage:</span>
+								<input type="textarea" name="message" />
+							</label>
+
+							<button>Submit</button>
+							
+						</form>
+					</div>
 				</div>
 			</section>
 			
@@ -51,73 +59,76 @@ import Hero from '../components/Hero.astro';
 </BaseLayout>
 
 <style>
-	.contact {
-		display: flex;
-		flex-direction: column;
-		gap: 3.5rem;
-	}
+	/* forms.css */
+	/* structure */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
 
-	img {
-		margin-top: 1.5rem;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
+img {
+  margin-top: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
 
-	section {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		color: var(--gray-200);
-	}
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--gray-200);
+}
 
-	.section-title {
-		grid-column-start: 1;
-		font-size: var(--text-xl);
-		color: var(--gray-0);
-	}
+.section-title {
+  grid-column-start: 1;
+  font-size: var(--text-xl);
+  color: var(--gray-0);
+}
 
-	.content {
-		grid-column: 2 / 4;
-	}
+.content {
+  grid-column: 2 / 4;
+}
 
-	.content :global(a) {
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
+.content :global(a) {
+  text-decoration: 1px solid underline transparent;
+  text-underline-offset: 0.25em;
+  transition: text-decoration-color var(--theme-transition);
+}
 
-	.content :global(a:hover),
-	.content :global(a:focus) {
-		text-decoration-color: currentColor;
-	}
+.content :global(a:hover),
+.content :global(a:focus) {
+  text-decoration-color: currentColor;
+}
 
-	.contact p {
-		margin-bottom:1rem;
-	}
-  .contact form {
-    display: flex;
-    flex-direction: column
+.contact p {
+  margin-bottom: 1rem;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 50em) {
+  .contact {
+    /* display: grid;
+    grid-template-columns: 1fr 60% 1fr; */
   }
 
-	@media (min-width: 50em) {
-		.contact {
-			/* display: grid;
-			grid-template-columns: 1fr 60% 1fr; */
-		}
+  .contact > :global(:first-child) {
+    grid-column-start: 2;
+  }
 
-		.contact > :global(:first-child) {
-			grid-column-start: 2;
-		}
+  section {
+    display: contents;
+    font-size: var(--text-lg);
+  }
 
-		section {
-			display: contents;
-			font-size: var(--text-lg);
-		}
+  .two_col {
+    columns: 2;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}
 
-		.two_col {
-			columns: 2;
-			margin-top: 1rem;
-			margin-bottom: 2rem
-		}
-	}
 </style>

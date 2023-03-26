@@ -1,0 +1,202 @@
+/* forms.css */
+
+/* form */
+
+.form_wrapper {
+  display: flex;
+  gap: 2rem;
+  margin: auto;
+  max-width: 360px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  position: relative;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-evenly;
+  margin: 8px 0 12px;
+}
+
+.contact label:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.contact label {
+  font-size: 0.8rem;
+  color: var(--light-grey);
+  margin-bottom: 5px;
+}
+
+.contact input,
+.contact textarea {
+  /* color: var(--dark-grey); */
+  width: 100%;
+  max-width: 360px;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+  /* background: transparent; */
+  /* border-bottom: 2px solid var(--main-color); */
+  /* background: rgba(0, 0, 0, 0); */
+  transition: all 0.2s ease-in-out;
+  overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
+}
+
+textarea {
+  min-height: 2rem;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='phone'],
+input[type='number'],
+input[type='tel'],
+input[type='date'],
+textarea {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 2px solid var(--main-color);
+}
+
+textarea {
+  padding: 0;
+}
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='phone']:focus,
+input[type='number']:focus,
+input[type='tel']:focus,
+input[type='date']:focus,
+textarea:focus {
+  background: rgba(182, 114, 114, 0.9);
+  /* border-bottom: 2px solid var(--dark-green); */
+  border-bottom: 2px solid var(--gradient-stroke);
+  outline: none;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='phone']:focus,
+input[type='number']:focus,
+input[type='tel']:focus,
+input[type='date']:focus,
+textarea:focus {
+  background: rgba(255, 255, 255, 0.9);
+  /* border-bottom: 2px solid var(--dark-green); */
+  border-bottom: 2px solid var(--gradient-stroke);
+  outline: none;
+}
+
+/* submit button */
+/* ------------------------------------ */
+
+.contact button {
+  position: relative;
+  display: flex;
+  place-content: center;
+  text-align: center;
+  padding: 0.56em 2em;
+  gap: 0.8em;
+  color: var(--accent-text-over);
+  text-decoration: none;
+  line-height: 1.1;
+  border-radius: 999rem;
+  overflow: hidden;
+  background: var(--gradient-accent-orange);
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  border: none;
+  max-width: fit-content;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  transition: all var(--theme-transition);
+}
+
+.contact button:hover {
+  background: transparent;
+  /* transition: all 0.5; */
+}
+
+.contact button::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background: var(--gradient-accent);
+  padding: 0;
+  margin: 0;
+  /* transition: all var(--theme-transition); */
+  transition: all 0.4s;
+  opacity: 0;
+}
+
+.contact button:hover::before {
+  opacity: 1;
+}
+
+/* FLOAT LABLES */
+/* ------------------------------------ */
+
+label span {
+}
+textarea label span {
+}
+
+input:valid span + label span,
+input:focus + label span,
+textarea:focus + label span,
+input:focus-within + label span,
+textarea:focus-within + label span {
+  /* transform: scale(0.8); */
+  /* top: -57px; */
+}
+textarea:focus + label span,
+textarea:focus-within + label span {
+  /* top: -87px;
+  margin-top: 5px; */
+}
+
+/* input:placeholder {display: none;} */
+
+input:valid ~ button,
+input:valid ~ input[type='submit'],
+textarea:valid ~ input[type='submit'] {
+  /* -webkit-animation: appear 1s forwards;
+  animation: appear 1s forwards; */
+}
+
+/* button, */
+input:invalid ~ button,
+input[type='submit'],
+input:invalid ~ input[type='submit'],
+textarea:invalid ~ input[type='submit'] {
+  /* display: none; */
+}
+
+button {
+  /* outline-color: var(--main-color-dark); */
+}
+
+@-webkit-keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
