@@ -99,7 +99,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 				btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
 				menu.hidden = !expand;
 			};
-
+			
 			// Toggle menu visibility when the menu button is clicked.
 			btn.addEventListener('click', () => 
 				setExpanded(menu.hidden)
@@ -120,16 +120,23 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 </script>
 
 <script>
-  // Find all buttons with the `menu-button` class on the page.
+  // Find all buttons with the `alert` class on the page.
   const buttons = document.querySelectorAll('button.menu-button');
 
   // Handle clicks on each button.
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
       alert('Button was clicked!');
-			
+			console.log("#foo\bar");
     });
   });
+	// const logo = document.getElementByClassName("logo");
+
+	// const button = document.querySelectorAll(".menu-button");
+	// button.addEventListener('click', () => {
+	// 	alert(message);
+	// 	document.getElementByClassName("logo").classList.toggle("change");
+	// });
 </script>
 
 <style is:global>
