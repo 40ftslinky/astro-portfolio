@@ -119,6 +119,38 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 	customElements.define('menu-button', MenuButton);
 </script>
 
+<!--  -->
+
+<script >
+	// Find nav.
+	
+	let scrollpos = window.scrollY
+
+  const header = document.querySelector("nav")
+  const header_height = header.offsetHeight
+
+	const add_class_on_scroll = () => header.classList.add("shrink")
+  const remove_class_on_scroll = () => header.classList.remove("shrink")
+
+	window.addEventListener('scroll', () => {
+		// console.log('scroll!')
+
+		scrollpos = window.scrollY;
+    
+		if (scrollpos > header_height) { 
+			add_class_on_scroll(); 
+			console.log('add')
+		}
+    else if (scrollpos < header_height) {  
+			remove_class_on_scroll(); 
+			console.log('remove')
+		}
+
+	}, true); 
+
+</script>
+
+<!--  -->
 <script>
   // Find all buttons with the `alert` class on the page.
   const buttons = document.querySelectorAll('button.menu-button');
@@ -127,7 +159,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
   buttons.forEach((button) => {
     button.addEventListener('click', () => {
       alert('Button was clicked!');
-			console.log("#foo\bar");
+			console.log("Button was clicked!");
     });
   });
 	// const logo = document.getElementByClassName("logo");

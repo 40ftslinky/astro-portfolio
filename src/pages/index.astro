@@ -47,15 +47,15 @@ const projects = (await getCollection('project'))
 					height="620"
 					src="/assets/portrait.jpg"
 				/> -->
-			</header>
+			</header>		
 
 			<Skills />
-		</div>
+		</div>				
 
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Projects</h3>
+					<h3 class="selected_projects">Selected Projects</h3>
 					<p>Take a look below at some of my featured work for clients from the past few years.</p>
 				</header>
 
@@ -105,6 +105,23 @@ const projects = (await getCollection('project'))
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<!-- js -->
+
+<script>
+
+// const observer = new IntersectionObserver(function (entries, observer) {
+//   entries.forEach((entry) => {
+//     if ( entry.isVisible ) {
+//       console.log('????');
+//     }}
+//   });
+// });
+
+// observer.observe(document.querySelector('.selected_projects'));
+
+</script>
+<!-- css -->
 
 <style>
 	.hero {
