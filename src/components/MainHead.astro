@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/animations.css';
 
 interface Props {
 	title?: string | undefined;
@@ -8,7 +9,7 @@ interface Props {
 
 const {
 	title = '40ftSlinky: Creative Agency',
-	description = 'The personal site of Jeremy Nichoson',
+	description = '40ftSlinky is a boutique creative agency delivering imaginative and effective brand & strategy with digital, print & motion solutions.',
 } = Astro.props;
 ---
 
@@ -46,3 +47,6 @@ const {
 		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 	}
 </script>
+
+<!-- relative path to script at `src/scripts/local.js` -->
+<script src="../scripts/scroll.js"></script>

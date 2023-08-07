@@ -55,6 +55,19 @@ const gradientId = 'logo-gradient-' + Math.round(Math.random() * 10e12).toString
 		width: var(--logosizew, 200px);
 		height: var(--logosizeh, 60px);
 	}
+	svg.logo {	
+		transition: var(--ease);
+		transform: scale(1);
+		transform-origin: left;
+	}
+
+	/* req js added class */
+	.active svg.logo { 
+		transform: scale(0.8) !important;
+    transform-origin: left;
+	}
+
+
   /* gradient */
   .logo stop { transition: .5s all; }
 

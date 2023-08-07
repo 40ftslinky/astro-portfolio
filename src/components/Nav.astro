@@ -81,6 +81,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 	</div>
 </nav>
 
+<!-- JS -->
 <script>
 	class MenuButton extends HTMLElement {
 		constructor() {
@@ -121,34 +122,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 
 <!--  -->
 
-<script >
-	// Find nav.
-	
-	let scrollpos = window.scrollY
 
-  const header = document.querySelector("nav")
-  const header_height = header.offsetHeight
-
-	const add_class_on_scroll = () => header.classList.add("shrink")
-  const remove_class_on_scroll = () => header.classList.remove("shrink")
-
-	window.addEventListener('scroll', () => {
-		// console.log('scroll!')
-
-		scrollpos = window.scrollY;
-    
-		if (scrollpos > header_height) { 
-			add_class_on_scroll(); 
-			console.log('add')
-		}
-    else if (scrollpos < header_height) {  
-			remove_class_on_scroll(); 
-			console.log('remove')
-		}
-
-	}, true); 
-
-</script>
 
 <!--  -->
 <script>
@@ -171,11 +145,22 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 	// });
 </script>
 
+<!-- CSS -->
+
 <style is:global>
 	/*  */
+	:root{ 
+		--ease: all 300ms ease;
+	}
 	.main-content {
 		margin-top: 140px;
 	}
+	.active svg.logo { 
+		transform: scale(0.8) !important;
+    transform-origin: left;
+	}
+
+	
 
 </style>
 
@@ -191,13 +176,29 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 		align-items: center;
 		justify-content: space-between;
 		width:100%;
+		/* --ease: all 300ms ease; */
+		transition: var(--ease);
+	}
+	/* req js added class */
+	nav.active { 
+		background: rgba(var(--dark-rgb), 0.9);
+		/* padding: 1.5rem 5rem; */
+		transition: var(--ease);
+	}
+	
+
+	nav a.site-title svg.logo {
+		transition: var(--ease);
+		transform: scale(1);
+		transform-origin: left;
 	}
 
-	nav a.site-title svg {
-		width:200px !important;
-		height: 60px !important;
+	/* req js added class */
+	nav.active svg.logo { 
+		transform: scale(0.8);
+    transform-origin: left;
 	}
-
+	
 	.menu-header {
 		display: flex;
 		justify-content: space-between;
@@ -269,7 +270,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 		flex-direction: column;
 		align-content: center;
     align-items: center;
-    justify-content: center;
+		justify-content: flex-end;
     flex-wrap: wrap;
 		gap: 1rem;
 		font-size: var(--text-md);
@@ -341,6 +342,10 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 			gap: 1rem;
 		}
 
+		nav.active { 
+			padding: 1rem 5rem;
+		}
+
 		.menu-header {
 			padding: 0;
 		}
@@ -356,6 +361,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 		.nav-items {
 			position: relative;
 			flex-direction: row;
+			justify-content: center;
 			font-size: var(--text-sm);
 			/* border-radius: 999rem; */
 			border: 0;
