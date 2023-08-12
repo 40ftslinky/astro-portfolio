@@ -29,26 +29,28 @@ navObs.observe(document.querySelector('header'));
 
 // fade-in / slide-in
 
-const faders = document.querySelectorAll('.fade-in');
-const sliders = document.querySelectorAll('.slide-in');
+// const faders = document.querySelectorAll('.fade-in');
+// const sliders = document.querySelectorAll('[class*="slide-in"]');
 // const articles = [...document.querySelectorAll("article")];
 
-const boxes = [...document.querySelectorAll('.fade-in')]
+const faders = [...document.querySelectorAll('[class*="fade"]')];
+const sliders = [...document.querySelectorAll('[class*="slide"]')];
 
 // create observer
-const callback = entries => {
-  entries.forEach(entry => {
+const callback = (entries) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('appear')
+      entry.target.classList.add('appear');
     }
-    
-    if (!entry.isIntersecting && entry.boundingClientRect.top > 0) {
-      entry.target.classList.remove('appear')
-    }
-  })
-}
 
-const observer = new IntersectionObserver(callback)
+    if (!entry.isIntersecting && entry.boundingClientRect.top > -250) {
+      entry.target.classList.remove('appear');
+    }
+  });
+};
+
+const observer = new IntersectionObserver(callback);
 
 // observe boxes
-boxes.forEach(box => observer.observe(box))
+faders.forEach((fader) => observer.observe(fader));
+sliders.forEach((slider) => observer.observe(slider));
