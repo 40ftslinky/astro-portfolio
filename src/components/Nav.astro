@@ -1,7 +1,7 @@
 ---
 import Icon, { Props as IconProps } from './Icon.astro';
 import Logo, { Props as LogoProps } from './Logo.astro';
-import ThemeToggle from './ThemeToggle.astro';
+// import ThemeToggle from './ThemeToggle.astro';
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -80,6 +80,8 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 		-->
 	</div>
 </nav>
+<!-- intersectional observer target -->
+<div class="target"></div>
 
 <!-- JS -->
 <script>
@@ -151,6 +153,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 	/*  */
 	:root{ 
 		--ease: all 300ms ease;
+		--nav_hght: 140px;
 	}
 	.main-content {
 		margin-top: 140px;
@@ -159,6 +162,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 		transform: scale(0.8) !important;
     transform-origin: left;
 	}
+
 
 	
 
@@ -270,7 +274,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 		flex-direction: column;
 		align-content: center;
     align-items: center;
-		justify-content: flex-end;
+		justify-content: center;
     flex-wrap: wrap;
 		gap: 1rem;
 		font-size: var(--text-md);
@@ -361,7 +365,7 @@ const iconLinks: { label: string; href: string; icon: IconProps['icon'] }[] = [
 		.nav-items {
 			position: relative;
 			flex-direction: row;
-			justify-content: center;
+			justify-content: flex-end;
 			font-size: var(--text-sm);
 			/* border-radius: 999rem; */
 			border: 0;

@@ -14,10 +14,16 @@
 const navBtn = document.querySelector('.menu-button');
 const nav = document.querySelector('nav');
 const navLinks = document.querySelector('.link');
+const hero = document.querySelector('.hero');
+const main = document.querySelector('.main-content');
+
+// const heros = [...document.querySelectorAll('.hero')];
 
 const navOptions = {
+  // root: document.body,
+  root: 0,
+  rootMargin: '0px 0px 0px 0px',
   threshold: 0,
-  rootMargin: '0px 0px -250px 0px',
 };
 
 const navObs = new IntersectionObserver(
@@ -25,7 +31,7 @@ const navObs = new IntersectionObserver(
   { navOptions }
 );
 
-navObs.observe(document.querySelector('header'));
+navObs.observe(document.querySelector('.target'));
 
 // fade-in / slide-in
 
@@ -43,7 +49,7 @@ const callback = (entries) => {
       entry.target.classList.add('appear');
     }
 
-    if (!entry.isIntersecting && entry.boundingClientRect.top > -250) {
+    if (!entry.isIntersecting && entry.boundingClientRect.top > 0) {
       entry.target.classList.remove('appear');
     }
   });
