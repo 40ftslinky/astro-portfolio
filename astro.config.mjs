@@ -6,6 +6,6 @@ import relativeLinks from 'astro-relative-links';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), relativeLinks()],
-  site: 'https://40ftslinky.github.io',
-  base: '/astro-portfolio/',
+  site: 'https://40ftslinky.github.io/astro-portfolio',
+  base: '/',
 });
