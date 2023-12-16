@@ -7,4 +7,5 @@ import relativeLinks from 'astro-relative-links';
 export default defineConfig({
   integrations: [react(), relativeLinks()],
   site: 'https://40ftslinky.github.io/astro-portfolio',
+  base: '/astro-portfolio',
 });
