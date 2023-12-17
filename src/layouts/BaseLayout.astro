@@ -17,8 +17,8 @@ const { title, description } = Astro.props;
 
 <html lang="en">
 	<head>
-		<base href="{import.meta.env.BASE_URL}" />
-		<!-- <base href="{Astro.base}" /> -->
+		<!-- <base href="{import.meta.env.BASE_URL}" /> -->
+		<base href="{Astro.base}" />
 		<MainHead title={title} description={description} />
 	</head>
 	<body>
