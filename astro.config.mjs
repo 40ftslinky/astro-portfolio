@@ -7,5 +7,5 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [react()],
   site: 'https://40ftslinky.github.io',
-  base: '/astro-portfolio/',
+  // base: '/astro-portfolio',
 });
